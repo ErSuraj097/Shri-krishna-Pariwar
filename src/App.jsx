@@ -13,6 +13,7 @@ import TodayEvents from './components/TodayEvents';
 import DignitariesGallery from './components/gallery/DignitariesGallery';
 import PhotoGallery from './components/gallery/PhotoGallery';
 import VideoGallery from './components/gallery/VideoGallery';
+import StickyButtons from './components/StickyButtons';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
+          <StickyButtons />
           
         <Routes>
             <Route path="/" element={<Home />} />

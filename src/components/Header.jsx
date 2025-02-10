@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import Top from "./Top";
+// import Top from "./Top";
 import logo from "../assets/logo.jpg";
 
 export default function Header() {
@@ -11,9 +11,9 @@ export default function Header() {
 
   return (
     <>
-      <Top />
-      <nav className="bg-white shadow-md sticky top-0 z-50 w-full">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      {/* <Top /> */}
+      <nav className="backdrop-blur-md  shadow-md sticky top-0 z-50 w-full">
+      <div className=" px-10  py-3 flex justify-between items-center">
           {/* Logo and Brand Name */}
           <div className="flex items-center space-x-3">
             <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
@@ -70,11 +70,11 @@ export default function Header() {
               )}
             </li>
 
-            <li>
+            {/* <li>
               <Link to="/TodayEvents" className="text-gray-700 hover:text-red-600 transition duration-300">
                 Events
               </Link>
-            </li>
+            </li> */}
 
             {/* Product Dropdown */}
             <li
@@ -118,13 +118,22 @@ export default function Header() {
               </Link>
             </li>
 
+                <div className="flex gap-2 ">
+            <li>
+              <Link to={"/live-katha"}>
+              <button className="bg-red-600 text-white px-2 py-1 rounded-lg hover:bg-red-700 transition duration-300">
+                Live Katha
+              </button>
+              </Link>
+            </li>
             <li>
               <Link to={"/donate"}>
-              <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
+              <button className="bg-red-600 text-white px-2 py-1 rounded-lg hover:bg-red-700 transition duration-300">
                 Donate Now
               </button>
               </Link>
             </li>
+            </div>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -206,6 +215,12 @@ export default function Header() {
                 <Link to="/contact" className="block text-gray-700 hover:text-red-600 transition duration-300">
                   Contact
                 </Link>
+              </li>
+
+              <li>
+                <button className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                  Live Katha
+                </button>
               </li>
 
               <li>

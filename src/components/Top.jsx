@@ -5,20 +5,20 @@ import { BsChatLeftFill, BsTelephoneFill, BsGlobe } from 'react-icons/bs'; // Im
 
 const Top = () => {
   return (
-    <div className="bg-gradient-to-r from-red-600 to-red-900 shadow-md"> {/* Gradient background */}
-      <div className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+    <div className="bg-gradient-to-r border border-b-1 from-white to-white shadow-md"> {/* Gradient background */}
+      <div className="container mx-auto  px-2 py-2 flex flex-wrap items-center justify-between">
 
-        <div className="flex items-center space-x-4"> 
+        {/* <div className="flex items-center space-x-4"> 
           <Link
             to="/live-katha"
-            className="bg-white text-red-700 px-4 py-1 rounded-md  hover:bg-red-100 transition duration-300" // Updated styles
+            className="bg-red-600 text-white px-2 py-1  text-[0.7rem] hover:bg-red-100 transition duration-300" // Updated styles
           >
             Live Katha
           </Link>
 
           <Link
             to="/TodayEvents"
-            className="bg-white text-red-700 px-4 py-1 rounded-md  hover:bg-red-100 transition duration-300" // Updated styles
+            className="bg-red-600 text-white px-2 py-1  text-[0.7rem] hover:bg-red-100 transition duration-300" // Updated styles
           >
             Today's Events
           </Link>
@@ -27,17 +27,17 @@ const Top = () => {
   
         <div className="flex items-center space-x-4">
   
-          <button className="bg-white text-red-700 px-4 py-1 rounded-md  hover:bg-red-100 transition duration-300 flex items-center"> {/* Icon added */}
+          <button className="bg-white text-red-700 px-2 py-1 rounded-md text-[0.7rem] hover:bg-red-100 transition duration-300 flex items-center"> 
             <BsChatLeftFill className="mr-2" />Chat-Us
           </button>
 
         
           <Link
             to="tel:+919935449055" 
-            className="text-white  hover:text-red-100 transition duration-300 flex items-center" 
+            className="text-white  hover:text-red-100 text-[0.8rem] transition duration-300 flex items-center" 
           >
             <BsTelephoneFill className="mr-2" />9935449055
-          </Link>
+          </Link> */}
 
        
           {/* <Menu as="div" className="relative inline-block">

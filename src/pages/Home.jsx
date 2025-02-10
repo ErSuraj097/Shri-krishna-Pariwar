@@ -7,6 +7,7 @@ import UpcomingEvents from "../components/UpcomingEvents";
 import Testimonials from "../components/Testimonials";
 
 
+
 const Home = () => {
   return (
     <>
