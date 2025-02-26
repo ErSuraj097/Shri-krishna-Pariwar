@@ -101,6 +101,7 @@ const Donate = () => {
             <strong>UPI:</strong> example@upi
           </p>
           <p>
+            
             <strong>Bank Transfer:</strong> 
             Account: 680701010050282
             bank (Union Bank of

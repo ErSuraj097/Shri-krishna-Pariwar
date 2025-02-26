@@ -198,12 +198,12 @@ export default function Header() {
                 {productOpen && (
                   <ul className="mt-2 space-y-2 pl-4">
                     <li>
-                      <Link to="/product/bhajan" className="block text-gray-600 hover:text-red-600">
+                      <Link to={"/product/bhajan"} className="block text-gray-600 hover:text-red-600">
                         Bhajan
                       </Link>
                     </li>
                     <li>
-                      <Link to="/product/books" className="block text-gray-600 hover:text-red-600">
+                      <Link to={"/product/books"} className="block text-gray-600 hover:text-red-600">
                         Books
                       </Link>
                     </li>
@@ -212,21 +212,21 @@ export default function Header() {
               </li>
 
               <li>
-                <Link to="/contact" className="block text-gray-700 hover:text-red-600 transition duration-300">
+                <Link to={"/contact"} className="block text-gray-700 hover:text-red-600 transition duration-300">
                   Contact
-                </Link>
+                  </Link>
               </li>
 
               <li>
-                <button className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                <Link to={"/live-katha"} className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
                   Live Katha
-                </button>
+                  </Link>
               </li>
 
               <li>
-                <button className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                <Link to={"/donate"} className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
                   Donate Now
-                </button>
+                  </Link>
               </li>
             </ul>
           </div>
