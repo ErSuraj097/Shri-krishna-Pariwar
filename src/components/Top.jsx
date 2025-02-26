@@ -1,54 +1,87 @@
-import { Button } from "@headlessui/react";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { Link } from 'react-router-dom';
+import { BsChatLeftFill, BsTelephoneFill, BsGlobe } from 'react-icons/bs'; // Import icons
 
 const Top = () => {
   return (
-    <div className="flex flex-col ">
-      {/* Top Bar */}
-      <div className="bg-white text-white border border-b-red-600">
-        <div className="container mx-auto px-4  flex justify-between items-center">
-          <div className="flex items-center ">
-            <Link
-              href="/live-katha"
-              className="border bg-red-600 py-2 px-2  hover:text-white flex items-center"
-            >
-              Live Katha
-            </Link>
+    <div className="bg-gradient-to-r border border-b-1 from-white to-white shadow-md"> {/* Gradient background */}
+      <div className="container mx-auto  px-2 py-2 flex flex-wrap items-center justify-between">
 
-            <Link
-              href="/events"
-              className="border bg-red-600 py-2 px-2 hover:text-white"
-            >
-              Today's Events
-            </Link>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Button
-              variant=" ghost"
-              className=" border bg-red-600 rounded-xl px-2 text-white hover:text-white"
-            >
-              Chat With Us
-            </Button>
-            <Link
-              href="tel:+911234567890"
-              className="text-red-600 hover:text-red-600 flex items-center"
-            >
-              +91 9792440259
-            </Link>
+        {/* <div className="flex items-center space-x-4"> 
+          <Link
+            to="/live-katha"
+            className="bg-red-600 text-white px-2 py-1  text-[0.7rem] hover:bg-red-100 transition duration-300" // Updated styles
+          >
+            Live Katha
+          </Link>
 
-            {/* Language Selector */}
+          <Link
+            to="/TodayEvents"
+            className="bg-red-600 text-white px-2 py-1  text-[0.7rem] hover:bg-red-100 transition duration-300" // Updated styles
+          >
+            Today's Events
+          </Link>
+        </div>
 
-            <select
-              className=" text-red-600 border border-red-600  cursor-pointer"
-              onChange={(e) =>
-                console.log("Language selected:", e.target.value)
-              }
+  
+        <div className="flex items-center space-x-4">
+  
+          <button className="bg-white text-red-700 px-2 py-1 rounded-md text-[0.7rem] hover:bg-red-100 transition duration-300 flex items-center"> 
+            <BsChatLeftFill className="mr-2" />Chat-Us
+          </button>
+
+        
+          <Link
+            to="tel:+919935449055" 
+            className="text-white  hover:text-red-100 text-[0.8rem] transition duration-300 flex items-center" 
+          >
+            <BsTelephoneFill className="mr-2" />9935449055
+          </Link> */}
+
+       
+          {/* <Menu as="div" className="relative inline-block">
+            <div>
+              <Menu.Button className="bg-white text-red-700 px-4 py-2 rounded-md font-semibold hover:bg-red-100 transition duration-300 flex items-center">
+                <BsGlobe className="mr-2" /> Language
+              </Menu.Button>
+            </div>
+
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
             >
-              <option value="en">English</option>
-              <option value="hi">हिन्दी</option>
-            </select>
-          </div>
+              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-24 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+                <div className="py-1">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        onClick={() => console.log("Language selected: en")}
+                        className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700 w-full text-left`}
+                      >
+                        English
+                      </button>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                         onClick={() => console.log("Language selected: hi")}
+                        className={`${active ? 'bg-gray-100' : ''} block px-4 py-2 text-sm text-gray-700 w-full text-left`}
+                      >
+                        हिन्दी
+                      </button>
+                    )}
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+            </Transition>
+          </Menu> */}
         </div>
       </div>
     </div>
