@@ -1,11 +1,15 @@
 import React from "react";
 import img from '../assets/img2.jpg'
 import { Link } from "react-router-dom";
+import { div } from "framer-motion/client";
 
 const Intro = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between p-8 bg-white">
+    
+    
+       <div className="flex flex-col md:flex-row items-center justify-between p-8 bg-white">
        {/* Right Section */}
+      
        <div className="md:w-1/2 flex justify-center">
         <img
           src={img}
@@ -37,9 +41,10 @@ const Intro = () => {
           knowledge, guiding Arjuna towards spiritual liberation.
         </p>
       </div>
+
+      </div>
       
-     
-    </div>
+  
   );
 };
 

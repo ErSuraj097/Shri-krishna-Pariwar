@@ -1,0 +1,45 @@
+/* Spiritual Hero Enhancements */
+.spiritual-hero {
+  @apply relative overflow-hidden;
+}
+
+.sacred-glow {
+  box-shadow: 
+    0 0 20px rgba(168, 85, 247, 0.3),
+    0 0 40px rgba(236, 72, 153, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.mantra-text {
+  background: linear-gradient(45deg, #a855f7, #ec4899, #06b6d4);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Video Background Fallback */
+.spiritual-hero video {
+  @apply w-full h-full object-cover;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .spiritual-hero h1 {
+    @apply text-4xl md:text-6xl;
+  }
+  
+  .spiritual-hero .subtitle {
+    @apply text-lg md:text-xl;
+  }
+}
+
+/* Custom Scrollbar for Hero */
+.spiritual-hero::-webkit-scrollbar {
+  display: none;
+}

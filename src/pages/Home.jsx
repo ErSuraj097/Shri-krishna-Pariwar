@@ -5,14 +5,19 @@ import QuickLinks from "../components/QuickLinks";
 
 import UpcomingEvents from "../components/UpcomingEvents";
 import Testimonials from "../components/Testimonials";
+import Intro from "../components/Intro";
+
 
 
 
 const Home = () => {
   return (
     <>
-      <div>
+      <div >
         <Hero />
+         
+        
+       
          {/* Event Countdown */}
          <EventCountdown />
 

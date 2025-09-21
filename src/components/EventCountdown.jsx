@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function EventCountdown() {
   const [timeLeft, setTimeLeft] = useState({
@@ -31,28 +32,52 @@ export default function EventCountdown() {
     return () => clearInterval(timer)
   }, [])
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
+
   return (
-    <div className="bg-orange-50 py-8">
+    <motion.div
+      className="bg-orange-50 py-8"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-orange-600 mb-4">Next Live Katha</h2>
-          <div className="flex justify-center space-x-4">
-            <div className="bg-white p-4 rounded-lg shadow-md">
+          <motion.div className="flex justify-center space-x-4">
+            <motion.div
+              className="bg-white p-4 rounded-lg shadow-md"
+              variants={itemVariants}
+            >
               <div className="text-3xl font-bold text-orange-600">{timeLeft.hours}</div>
               <div className="text-sm text-gray-600">Hours</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-md">
+            </motion.div>
+            <motion.div
+              className="bg-white p-4 rounded-lg shadow-md"
+              variants={itemVariants}
+            >
               <div className="text-3xl font-bold text-orange-600">{timeLeft.minutes}</div>
               <div className="text-sm text-gray-600">Minutes</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-md">
+            </motion.div>
+            <motion.div
+              className="bg-white p-4 rounded-lg shadow-md"
+              variants={itemVariants}
+            >
               <div className="text-3xl font-bold text-orange-600">{timeLeft.seconds}</div>
               <div className="text-sm text-gray-600">Seconds</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

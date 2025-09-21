@@ -3,7 +3,7 @@ import React from 'react'
 const NewsMarque = () => {
   return (
    <>
-   <div className="bg-[#fa110075] text-white overflow-hidden ">
+   <div className="bg-red-800 text-white overflow-hidden ">
         <div className="animate-marquee">
             
             <marquee  direction="right">

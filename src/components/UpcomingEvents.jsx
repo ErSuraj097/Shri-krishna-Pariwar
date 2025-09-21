@@ -1,7 +1,8 @@
 
 
-import { Button } from "@headlessui/react"
-import { Calendar } from "lucide-react"
+import { Button } from "@headlessui/react";
+import { Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function UpcomingEvents() {
   const events = [
@@ -23,15 +24,36 @@ export default function UpcomingEvents() {
       image: "/placeholder.svg?height=200&width=300",
       description: "A three-day spiritual retreat with Shri Pragyanand Ji Maharaj",
     },
-  ]
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
-    <section className="py-12 bg-gray-50">
+    <motion.section
+      className="py-12 bg-gray-50"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Upcoming Events</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6" variants={itemVariants}>
           {events.map((event) => (
-            <div key={event.title} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <motion.div
+              key={event.title}
+              className="bg-white rounded-lg shadow-md overflow-hidden"
+              variants={itemVariants}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               {/* <Image
                 src={event.image || "/placeholder.svg"}
                 alt={event.title}
@@ -48,11 +70,11 @@ export default function UpcomingEvents() {
                 <p className="text-gray-700 mb-4">{event.description}</p>
                 <Button className="w-full">Register Now</Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }
 

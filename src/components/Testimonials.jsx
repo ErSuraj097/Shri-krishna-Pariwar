@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
-// import Image from "next/image"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+// import Image from "next/image";
 
 export default function Testimonials() {
   const testimonials = [
@@ -20,45 +21,87 @@ export default function Testimonials() {
       text: "The teachings have helped me understand the deeper meaning of life and spirituality.",
       image: "/placeholder.svg?height=100&width=100",
     },
-  ]
+  ];
 
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const textVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
   return (
-    <section className="py-12 bg-orange-50">
+    <motion.section
+      className="py-12 bg-orange-50"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Devotee Experiences</h2>
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            {/* <Image
-              src={testimonials[current].image || "/placeholder.svg"}
-              alt={testimonials[current].name}
-              width={100}
-              height={100}
-              className="mx-auto rounded-full mb-4"
-            /> */}
-            <p className="text-gray-700 text-lg mb-4 italic">"{testimonials[current].text}"</p>
-            <p className="font-semibold text-orange-600">{testimonials[current].name}</p>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              className="bg-white rounded-lg shadow-md p-6 text-center"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {/* <Image
+                src={testimonials[current].image || "/placeholder.svg"}
+                alt={testimonials[current].name}
+                width={100}
+                height={100}
+                className="mx-auto rounded-full mb-4"
+              /> */}
+              <motion.p
+                className="text-gray-700 text-lg mb-4 italic"
+                variants={textVariants}
+              >
+                "{testimonials[current].text}"
+              </motion.p>
+              <motion.p
+                className="font-semibold text-orange-600"
+                variants={textVariants}
+              >
+                {testimonials[current].name}
+              </motion.p>
+            </motion.div>
+          </AnimatePresence>
           <div className="flex justify-center mt-4">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`h-2 w-2 rounded-full mx-1 ${index === current ? "bg-orange-600" : "bg-orange-200"}`}
+                className={`h-2 w-2 rounded-full mx-1 ${
+                  index === current ? "bg-orange-600" : "bg-orange-200"
+                }`}
                 onClick={() => setCurrent(index)}
+                aria-label={`Show testimonial ${index + 1}`}
               />
             ))}
           </div>
         </div>
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }
 
